@@ -110,21 +110,40 @@ function appendText(text) {
 function exo3() {
     "use strict";
 
-    document.getElementById("text").innerHTML = "";
+    var elem = document.getElementById("text").innerHTML;
+    elem = "";
+
+    var res;
 
     appendText("Exercice 3");
     var list = [1, 2, 4];
     // TODO camlListOfArray
+    res = camlListOfArray(list);
+    window.console.log(list + " devient : " + res);
 
     var palindromes = ["", "a", "BB", "BOB", "ESOPERESTEICIETSEREPOSE"];
     var nonPalindromes = ["Bob", "BABA"];
     // TODO estPalindrome
+    for(var palindrome in palindromes) {
+        res = estPalindrome(palindrome);
+        window.console.log(palindrome + " est palindrome (true) : " + res);
+    }
+    for(var palindrome in nonPalindromes) {
+        res = estPalindrome(palindrome);
+        window.console.log(palindrome + " est palindrome (false) : " + res);
+    }
 
     var esop = "ESOPERESTEICIETSEREPOSE"
     // TODO listeOccurrences
+    res = listeOccurrences("E", esop);
+    window.console.log(esop + " liste des occurences :" + res);
 
     var testsEmail = ["a@b.fr", "john.doe@firm.co.uk", "somebody@domain"];
     // TODO estEmail
+    for(var mail in testsEmail) {
+        res = estEmail(mail);
+        window.console.log(mail + " est mail : " + res);
+    }
 
     appendText("TODO : ajoutez le résulat de chaque opération");
 }
@@ -132,25 +151,45 @@ function exo3() {
 function camlListOfArray(tableau) {
     "use strict";
     // TODO
-    return "TODO";
+    return tableau.toString().replace(",", ";");
 }
 
 function estPalindrome(texte) {
     "use strict";
     // TODO
-    return true;
+    var bool = true;
+    var i = 0;
+    var len = texte.length;
+    while(bool && i < len) {
+        bool = texte.charAt(i) === texte.charAt(len - i -1);
+        i++;
+    }
+    return bool;
 }
 
 function listeOccurrences(search, texte) {
     "use strict";
     // TODO
-    return [];
+    var res = [];
+    var i = texte.indexOf(search);
+    window.console.log(i);
+    var sum = i;
+
+    while(i !== -1) {
+        res.push(sum);
+        texte = texte.substring(i+1);
+        i = texte.indexOf(search);
+        sum = sum + i + 1;
+    }
+    return res;
 }
 
 function estEmail(texte) {
     "use strict";
     // TODO
-    return true;
+    var re = new RegExp('([a-z]+[A-Z])*@([a-z]+[A-Z])*.([a-z]+[A-Z])*');
+
+    return re.exec(texte);
 }
 
 //////////////////////////////////////////////////////////////////////
