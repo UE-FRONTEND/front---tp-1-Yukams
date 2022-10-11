@@ -2,6 +2,6 @@
 ## TP1 - Introduction à Javascript
 
 ## Etudiant
-* NOM : Doe
-* Prénom : John
-* Groupe de TP : 
+* NOM : TAHON
+* Prénom : Valentin
+* Groupe de TP : 41
