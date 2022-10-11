@@ -50,6 +50,14 @@ function exo2_1() {
     window.console.log("Exercice 2.1");
 
     // TODO regarder le résultat des calculs de nombres
+    window.console.log(Number("A"));    // NaN
+    window.console.log(2+"12");               // 212
+    window.console.log(2+(+"12"));            // 14
+    window.console.log(+"A");                 // NaN
+    window.console.log(2*"12");               // 24
+    window.console.log(2*"A");                // NaN
+    window.console.log(1/0);                  // Infinity
+    window.console.log(1/-0);                 // -Infinity
 }
 
 function exo2_2() {
@@ -57,6 +65,11 @@ function exo2_2() {
     window.console.log("Exercice 2.2");
 
     // TODO regarder le résultat des opérations avec NaN
+    // 2 :
+    // Nan peut etre produit par : Number(string); +string; int*string
+    window.console.log(NaN === NaN); // false
+    window.console.log(NaN !== NaN); // true
+    window.console.log(isNaN(NaN));  // true
 }
 
 function exo2_3() {
@@ -64,6 +77,9 @@ function exo2_3() {
     window.console.log("Exercice 2.3");
 
     // TODO regarder la valeur d'une variable non initialisée
+    // 3 :
+    var test;
+    window.console.log(test);        // undefined
 }
 
 function exo2_4() {
@@ -72,6 +88,12 @@ function exo2_4() {
     window.console.log("Exercice 2.4");
 
     // TODO regarder la différence entre null et undefined
+    // 4 :
+    window.console.log(null === 1);                 // false
+    window.console.log(undefined === 1);            // false
+    window.console.log(null === null);              // true
+    window.console.log(undefined === undefined);    // true
+    window.console.log(null === undefined);         // false
 }
 
 //////////////////////////////////////////////////////////////////////
