@@ -26,6 +26,20 @@ function exo1(limit) {
     window.console.log("Exercice 1");
 
     // TODO copier votre exercice nombre parfait du cours
+    var list = [];
+    for(var i = 1; i < limit; i++) {
+        var sum = 0;
+        for(var j = 1; j < i; j++) {
+            if(i%j === 0) {
+                sum += j;
+            }
+        }
+        if(sum === i) {
+            list.push(i);
+        }
+    }
+
+    window.console.log(list);
 }
 
 //////////////////////////////////////////////////////////////////////
