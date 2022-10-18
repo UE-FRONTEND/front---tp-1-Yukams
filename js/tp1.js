@@ -16,6 +16,8 @@ function runFunction() {
     exo3();
 
     exo4();
+
+    exo5();
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -194,11 +196,40 @@ function estEmail(texte) {
 
 //////////////////////////////////////////////////////////////////////
 
+function Robot(nom) {
+    "use strict";
+    this.nom = nom;
+    this.equals = function(robot) {
+        return robot.name === this.name;
+    }
+}
+
+function Robot2(nom) {
+    const _nom = nom;
+
+    const my = {};
+    my.equals = function(robot) {
+        return _nom === robot.nom;
+    }
+    my.getNom = function() {
+        return _nom;
+    }
+    return my;
+}
+
 // Exercice 4
 function exo4() {
     "use strict";
     appendText("Exercice 4");
-    // TODO
+    let robot1 = new Robot("bipboop");
+    let robot2 = new Robot("bipboop");
+    console.log("robot1 === robot2 : " + (robot1 === robot2));
+    console.log("robot1.equals(robot2) : " + robot1.equals(robot2));
+
+    let robot3 = Robot2("boop");
+    console.log("robot3._nom : " + robot3._nom);
+    console.log("robot3.nom : " + robot3.nom);
+    console.log("robot3.getNom() : " + robot3.getNom());
     appendText("TODO : ajoutez le résulat de chaque opération")
 }
 

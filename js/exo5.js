@@ -30,17 +30,17 @@ function exo5() {
     var function2 = parent.genObjArrow();
 
     /* TESTS */
-    function1.functionMethod("Ceci est un test");
-    function2.arrowMethod("Ceci est un test");
+    function1.functionMethod("Ceci est un test"); // this sera scopé sur le contexte de objFun
+    function2.arrowMethod("Ceci est un test"); // this sera scopé sur le contexte de parent parce que =>
 
-    function1.functionMethod.call(other, "Ceci est un autre test");
-    function2.arrowMethod.call(other, "Ceci est un autre test");
+    function1.functionMethod.call(other, "Ceci est un autre test"); // this sera scopé sur le contexte de other
+    function2.arrowMethod.call(other, "Ceci est un autre test"); // this sera scopé sur le contexte de parent parce que =>
 
-    function1.functionMethod.apply(other, ["Ceci est un autre test"]);
-    function2.arrowMethod.apply(other, ["Ceci est un autre test"]);
+    function1.functionMethod.apply(other, ["Ceci est un autre test"]); // this sera scopé sur le contexte de other
+    function2.arrowMethod.apply(other, ["Ceci est un autre test"]); // this sera scopé sur le contexte de parent parce que =>
 
-    var bind1 = function1.functionMethod.bind(other);
-    var bind2 = function2.arrowMethod.bind(other);
+    var bind1 = function1.functionMethod.bind(other); // this sera scopé sur le contexte de other
+    var bind2 = function2.arrowMethod.bind(other); // this sera scopé sur le contexte de parent parce que =>
 
     bind1("Ceci est un dernier test");
     bind2("Ceci est un dernier test");
