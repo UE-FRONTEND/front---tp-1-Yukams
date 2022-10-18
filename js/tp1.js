@@ -124,13 +124,13 @@ function exo3() {
     var palindromes = ["", "a", "BB", "BOB", "ESOPERESTEICIETSEREPOSE"];
     var nonPalindromes = ["Bob", "BABA"];
     // TODO estPalindrome
-    for(var palindrome in palindromes) {
-        res = estPalindrome(palindrome);
-        window.console.log(palindrome + " est palindrome (true) : " + res);
+    for(var i in palindromes) {
+        res = estPalindrome(palindromes[i]);
+        window.console.log(palindromes[i] + " est palindrome (true) : " + res);
     }
-    for(var palindrome in nonPalindromes) {
-        res = estPalindrome(palindrome);
-        window.console.log(palindrome + " est palindrome (false) : " + res);
+    for(var i in nonPalindromes) {
+        res = estPalindrome(nonPalindromes[i]);
+        window.console.log(nonPalindromes[i] + " est palindrome (false) : " + res);
     }
 
     var esop = "ESOPERESTEICIETSEREPOSE"
@@ -140,9 +140,9 @@ function exo3() {
 
     var testsEmail = ["a@b.fr", "john.doe@firm.co.uk", "somebody@domain"];
     // TODO estEmail
-    for(var mail in testsEmail) {
-        res = estEmail(mail);
-        window.console.log(mail + " est mail : " + res);
+    for(var i in testsEmail) {
+        res = estEmail(testsEmail[i]) !== null;
+        window.console.log(testsEmail[i] + " est mail : " + res);
     }
 
     appendText("TODO : ajoutez le résulat de chaque opération");
@@ -187,7 +187,7 @@ function listeOccurrences(search, texte) {
 function estEmail(texte) {
     "use strict";
     // TODO
-    var re = new RegExp('([a-z]+[A-Z])*@([a-z]+[A-Z])*.([a-z]+[A-Z])*');
+    var re = new RegExp("([a-z]+[A-Z])*@([a-z]+[A-Z])*.([a-z]+[A-Z])*");
 
     return re.exec(texte);
 }
